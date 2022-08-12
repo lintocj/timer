@@ -8,37 +8,68 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Timer View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="TimerViewController" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Poh-u8-hXJ">
-                                <rect key="frame" x="107" y="98" width="200" height="50"/>
+                                <rect key="frame" x="117" y="98" width="180" height="50"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="nCB-EG-d6f"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="Hz9-bj-UtV"/>
                                     <constraint firstAttribute="height" constant="50" id="ztb-r8-Y1n"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="nZI-fp-hZx">
+                                <rect key="frame" x="88" y="228" width="238" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dZ-8z-y5c">
+                                        <rect key="frame" x="0.0" y="0.0" width="107" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="PAUSE"/>
+                                        <connections>
+                                            <action selector="startResumeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7FS-bz-QS2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qm-xG-7nU">
+                                        <rect key="frame" x="131" y="0.0" width="107" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="STOP/RESET"/>
+                                        <connections>
+                                            <action selector="resetStopAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oI2-QB-1Vz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="L2W-Hy-4n7"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nZI-fp-hZx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="57W-Jc-etN"/>
+                            <constraint firstItem="nZI-fp-hZx" firstAttribute="top" secondItem="Poh-u8-hXJ" secondAttribute="bottom" constant="80" id="ib1-Zn-2of"/>
                             <constraint firstItem="Poh-u8-hXJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n9P-5V-FdK"/>
                             <constraint firstItem="Poh-u8-hXJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="vjz-ib-lhO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="resetStopButton" destination="4qm-xG-7nU" id="9bv-VN-jhc"/>
+                        <outlet property="startResumeButton" destination="3dZ-8z-y5c" id="0ea-R9-pvb"/>
+                        <outlet property="timeLabel" destination="Poh-u8-hXJ" id="eXm-Ag-MHk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="95.758928571428569"/>
+            <point key="canvasLocation" x="93" y="10"/>
         </scene>
     </scenes>
     <resources>
